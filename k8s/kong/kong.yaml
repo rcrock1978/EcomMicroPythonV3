@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kong
+  template:
+    metadata:
+      labels:
+        app: kong
+    spec:
+      containers:
+      - name: kong
+        image: kong:3.4
+        ports:
+        - containerPort: 8000
+        - containerPort: 8443
+        - containerPort: 8001
+        - containerPort: 8444
+        env:
+        - name: KONG_DATABASE
+          value: "off"
+        - name: KONG_DECLARATIVE_CONFIG
+          value: /etc/kong/kong.yml
+        volumeMounts:
+        - name: kong-config
+          mountPath: /etc/kong
+      volumes:
+      - name: kong-config
+        configMap:
+          name: kong-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kong-config
+data:
+  kong.yml: |
+    _format_version: "3.0"
+    services:
+    - name: product-service
+      url: http://product-service
+      routes:
+      - name: product-route
+        paths:
+        - /api/products
+    - name: order-service
+      url: http://order-service
+      routes:
+      - name: order-route
+        paths:
+        - /api/orders
+    - name: user-service
+      url: http://user-service
+      routes:
+      - name: user-route
+        paths:
+        - /api/users
+    - name: payment-service
+      url: http://payment-service
+      routes:
+      - name: payment-route
+        paths:
+        - /api/payments
+    - name: inventory-service
+      url: http://inventory-service
+      routes:
+      - name: inventory-route
+        paths:
+        - /api/inventory
+    - name: frontend
+      url: http://frontend
+      routes:
+      - name: frontend-route
+        paths:
+        - /
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kong
+spec:
+  selector:
+    app: kong
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: ClusterIP

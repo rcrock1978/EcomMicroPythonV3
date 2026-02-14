@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+
+  product-service:
+    build: ./services/product-service
+    ports:
+      - "8001:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=product_service.settings
+    depends_on:
+      - db
+
+  order-service:
+    build: ./services/order-service
+    ports:
+      - "8002:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=order_service.settings
+    depends_on:
+      - db
+
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "8003:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=user_service.settings
+    depends_on:
+      - db
+
+  payment-service:
+    build: ./services/payment-service
+    ports:
+      - "8004:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=payment_service.settings
+    depends_on:
+      - db
+
+  inventory-service:
+    build: ./services/inventory-service
+    ports:
+      - "8005:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=inventory_service.settings
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - product-service
+      - order-service
+      - user-service
+      - payment-service
+      - inventory-service
+
+volumes:
+  postgres_data:

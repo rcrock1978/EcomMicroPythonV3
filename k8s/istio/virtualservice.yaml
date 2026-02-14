@@ -1,0 +1,46 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ecommerce-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - ecommerce-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/api/products"
+    route:
+    - destination:
+        host: product-service
+  - match:
+    - uri:
+        prefix: "/api/orders"
+    route:
+    - destination:
+        host: order-service
+  - match:
+    - uri:
+        prefix: "/api/users"
+    route:
+    - destination:
+        host: user-service
+  - match:
+    - uri:
+        prefix: "/api/payments"
+    route:
+    - destination:
+        host: payment-service
+  - match:
+    - uri:
+        prefix: "/api/inventory"
+    route:
+    - destination:
+        host: inventory-service
+  - match:
+    - uri:
+        prefix: "/"
+    route:
+    - destination:
+        host: frontend
