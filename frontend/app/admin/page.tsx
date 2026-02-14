@@ -26,12 +26,12 @@ const AdminProductsPage = () => {
   }, []);
 
   const fetchProducts = () => {
-    axios.get('http://product-service:8000/api/products/').then(res => setProducts(res.data));
+    axios.get('http://localhost:8001/api/products/').then(res => setProducts(res.data));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    axios.post('http://product-service:8000/api/products/', formData).then(() => {
+    axios.post('http://localhost:8001/api/products/', formData).then(() => {
       fetchProducts();
       setFormData({ name: '', description: '', price: '', image: '' });
       setShowForm(false);
@@ -40,7 +40,7 @@ const AdminProductsPage = () => {
 
   const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete this product?')) {
-      axios.delete(`http://product-service:8000/api/products/${id}/`).then(() => {
+      axios.delete(`http://localhost:8001/api/products/${id}/`).then(() => {
         fetchProducts();
       });
     }

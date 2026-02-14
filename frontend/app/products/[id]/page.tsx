@@ -19,7 +19,7 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     if (params.id) {
-      axios.get(`http://product-service:8000/api/products/${params.id}/`).then(res => setProduct(res.data));
+      axios.get(`http://localhost:8001/api/products/${params.id}/`).then(res => setProduct(res.data));
     }
   }, [params.id]);
 
