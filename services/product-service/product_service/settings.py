@@ -37,10 +37,22 @@ DATABASES = {
         'NAME': 'product_db',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
+# Test database configuration
+import os
+if 'test' in os.sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_product_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 
 
 # Application definition
@@ -75,6 +87,7 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -84,21 +97,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "product_service.wsgi.application"
-
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "product_db",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "db",
-        "PORT": "5432",
-    }
-}
 
 
 # Password validation

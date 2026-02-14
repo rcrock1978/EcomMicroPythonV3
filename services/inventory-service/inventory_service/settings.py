@@ -37,10 +37,22 @@ DATABASES = {
         'NAME': 'inventory_db',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
+# Test database configuration
+import os
+if 'test' in os.sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_inventory_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 
 
 # Application definition
@@ -84,21 +96,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "inventory_service.wsgi.application"
-
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "inventory_db",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "db",
-        "PORT": "5432",
-    }
-}
 
 
 # Password validation
