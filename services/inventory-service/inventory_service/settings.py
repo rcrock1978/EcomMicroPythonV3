@@ -25,7 +25,22 @@ SECRET_KEY = "django-insecure-#3b3d!^ou!@s_xdr0(jq&5t_zu1bbmd$%(mq3o&=bd32d$yh8p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
+# Database
+# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'inventory_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'db',
+        'PORT': '5432',
+    }
+}
 
 
 # Application definition
