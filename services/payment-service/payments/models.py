@@ -7,3 +7,6 @@ class Payment(models.Model):
     status = models.CharField(max_length=50, default='pending')  # pending, completed, failed
     transaction_id = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Payment {self.id} - Order {self.order_id} - {self.status}"
