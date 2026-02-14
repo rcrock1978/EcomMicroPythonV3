@@ -8,3 +8,6 @@ class User(models.Model):
     last_name = models.CharField(max_length=30, blank=True)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.username
