@@ -11,6 +11,20 @@ This project implements a scalable ecommerce platform using microservices archit
 - **Inventory Service**: Manages inventory (Django, port 8005)
 - **Frontend**: Next.js app (port 3000)
 
+## Frontend Features
+
+- **Home Page**: Welcome page with featured sections
+- **Product Listing**: Grid layout with product cards
+- **Product Details**: Individual product pages with full information
+- **Shopping Cart**: Persistent cart with quantity management
+- **Checkout Process**: Order form with shipping information
+- **User Authentication**: Login and registration pages
+- **User Profile**: Order history and account management
+- **Admin Dashboard**: Product management interface
+- **Search Functionality**: Real-time product search
+- **Responsive Design**: Mobile-friendly with Tailwind CSS
+- **State Management**: Zustand for cart persistence
+
 ## Setup
 
 ### Prerequisites
@@ -65,9 +79,11 @@ This project implements a scalable ecommerce platform using microservices archit
 
 ## Next Steps
 
-- Implement distributed tracing (Jaeger)
-- Add service discovery (Consul)
-- Implement circuit breakers and retries
-- Add rate limiting and security policies
-- Set up log aggregation (ELK stack)
-- Implement CI/CD pipeline
+- Implement payment gateway integration (Stripe/PayPal)
+- Add image upload and storage (AWS S3/Cloudinary)
+- Implement real-time notifications (WebSockets)
+- Add product categories and filtering
+- Implement user reviews and ratings
+- Add inventory management UI
+- Set up monitoring dashboards
+- Implement A/B testing framework

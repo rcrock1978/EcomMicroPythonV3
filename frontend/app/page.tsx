@@ -1,23 +1,40 @@
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          Welcome to Our Ecommerce Store
+        </h1>
+        <p className="text-xl text-gray-600 mb-8">
+          Discover amazing products at great prices
+        </p>
+        <Link
+          href="/products"
+          className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Shop Now
+        </Link>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-8 mt-12">
+        <div className="text-center p-6 bg-white rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold mb-2">Quality Products</h3>
+          <p className="text-gray-600">We offer only the highest quality products from trusted brands.</p>
+        </div>
+        <div className="text-center p-6 bg-white rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold mb-2">Fast Shipping</h3>
+          <p className="text-gray-600">Quick and reliable shipping to get your orders to you fast.</p>
+        </div>
+        <div className="text-center p-6 bg-white rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold mb-2">Secure Payments</h3>
+          <p className="text-gray-600">Safe and secure payment processing for your peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
             <a
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               className="font-medium text-zinc-950 dark:text-zinc-50"
