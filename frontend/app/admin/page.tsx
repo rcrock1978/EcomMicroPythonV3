@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 
 interface Product {
@@ -47,6 +48,18 @@ const AdminProductsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Admin Navigation */}
+      <div className="bg-white rounded-lg shadow-md p-4 mb-8">
+        <nav className="flex space-x-6">
+          <Link href="/admin" className="text-blue-600 font-medium hover:text-blue-800">
+            Products
+          </Link>
+          <Link href="/admin/tests" className="text-gray-600 hover:text-blue-600">
+            Unit Tests
+          </Link>
+        </nav>
+      </div>
+
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Admin - Product Management</h1>
         <button

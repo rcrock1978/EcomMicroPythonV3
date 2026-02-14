@@ -17,6 +17,9 @@ urlpatterns = [
     # Gateway statistics
     path('api/stats/', views.gateway_stats, name='gateway-stats'),
 
+    # Unit tests endpoint
+    path('gateway/tests/', views.run_gateway_tests, name='gateway-tests'),
+
     # Proxy all other requests to backend services
     re_path(r'^(?P<path>.*)$', views.GatewayProxyView.as_view(), name='gateway-proxy'),
 ]

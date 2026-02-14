@@ -80,17 +80,21 @@ DATABASES = {
         'NAME': 'api_gateway_db',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
 
-# Use SQLite for testing
-import sys
-if 'test' in sys.argv:
+# Test database configuration
+import os
+if 'test' in os.sys.argv:
     DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_api_gateway_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 
 
