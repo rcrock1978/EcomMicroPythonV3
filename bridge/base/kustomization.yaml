@@ -1,0 +1,33 @@
+#! kustomization.yaml
+# Generated code, do not edit
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - 0-ecommicropythonv3-namespace.yaml
+    - db-C:\Users\LEGION\DEV-Microservices\EcomMicroPythonV3\init-db.sh-persistentVolumeClaim.yaml
+    - db-deployment.yaml
+    - db-expose.yaml
+    - db-postgres_data-persistentVolumeClaim.yaml
+    - db-service.yaml
+    - default-network-policy.yaml
+    - frontend-deployment.yaml
+    - frontend-expose.yaml
+    - frontend-service.yaml
+    - inventory-service-deployment.yaml
+    - inventory-service-expose.yaml
+    - inventory-service-service.yaml
+    - order-service-deployment.yaml
+    - order-service-expose.yaml
+    - order-service-service.yaml
+    - payment-service-deployment.yaml
+    - payment-service-expose.yaml
+    - payment-service-service.yaml
+    - product-service-deployment.yaml
+    - product-service-expose.yaml
+    - product-service-service.yaml
+    - rabbitmq-deployment.yaml
+    - rabbitmq-expose.yaml
+    - rabbitmq-service.yaml
+    - user-service-deployment.yaml
+    - user-service-expose.yaml
+    - user-service-service.yaml

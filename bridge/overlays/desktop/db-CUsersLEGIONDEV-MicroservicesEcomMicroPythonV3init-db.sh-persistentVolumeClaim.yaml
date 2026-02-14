@@ -1,0 +1,9 @@
+#! db-C:\Users\LEGION\DEV-Microservices\EcomMicroPythonV3\init-db.sh-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: db-c--users-legion-dev-microservices-ecommicropythonv3-init-db-sh
+    namespace: ecommicropythonv3
+spec:
+    storageClassName: "hostpath" # see docker/desktop-storage-provisioner

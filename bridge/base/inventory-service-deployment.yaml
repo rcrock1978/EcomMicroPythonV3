@@ -1,0 +1,35 @@
+#! inventory-service-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: inventory-service
+    namespace: ecommicropythonv3
+    labels:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: inventory-service
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: ecommicropythonv3
+            com.docker.compose.service: inventory-service
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: ecommicropythonv3
+                com.docker.compose.service: inventory-service
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: inventory-service
+                  image: ecommicropythonv3-inventory-service
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: DJANGO_SETTINGS_MODULE
+                      value: "inventory_service.settings"
+                  ports:
+                    - name: inventory--8000
+                      containerPort: 8000

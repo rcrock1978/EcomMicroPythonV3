@@ -1,0 +1,21 @@
+#! payment-service-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: payment-service-published
+    namespace: ecommicropythonv3
+    labels:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: payment-service
+spec:
+    selector:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: payment-service
+    ports:
+        - name: payment-se-8004
+          port: 8004
+          protocol: TCP
+          targetPort: payment-se-8000
+
+# check if there is at least one published port

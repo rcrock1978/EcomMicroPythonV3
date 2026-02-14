@@ -1,0 +1,35 @@
+#! product-service-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: product-service
+    namespace: ecommicropythonv3
+    labels:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: product-service
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: ecommicropythonv3
+            com.docker.compose.service: product-service
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: ecommicropythonv3
+                com.docker.compose.service: product-service
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: product-service
+                  image: ecommicropythonv3-product-service
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: DJANGO_SETTINGS_MODULE
+                      value: "product_service.settings"
+                  ports:
+                    - name: product-se-8000
+                      containerPort: 8000

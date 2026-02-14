@@ -1,0 +1,21 @@
+#! product-service-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: product-service-published
+    namespace: ecommicropythonv3
+    labels:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: product-service
+spec:
+    selector:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: product-service
+    ports:
+        - name: product-se-8001
+          port: 8001
+          protocol: TCP
+          targetPort: product-se-8000
+
+# check if there is at least one published port

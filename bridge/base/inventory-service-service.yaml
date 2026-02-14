@@ -1,0 +1,21 @@
+#! inventory-service-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: inventory-service-published
+    namespace: ecommicropythonv3
+    labels:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: inventory-service
+spec:
+    selector:
+        com.docker.compose.project: ecommicropythonv3
+        com.docker.compose.service: inventory-service
+    ports:
+        - name: inventory--8005
+          port: 8005
+          protocol: TCP
+          targetPort: inventory--8000
+
+# check if there is at least one published port

@@ -1,0 +1,17 @@
+#! kustomization.yaml
+# Generated code, do not edit
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - ../../base
+patches:
+    - path: db-C:\Users\LEGION\DEV-Microservices\EcomMicroPythonV3\init-db.sh-persistentVolumeClaim.yaml
+    - path: db-postgres_data-persistentVolumeClaim.yaml
+    - path: db-service.yaml
+    - path: frontend-service.yaml
+    - path: inventory-service-service.yaml
+    - path: order-service-service.yaml
+    - path: payment-service-service.yaml
+    - path: product-service-service.yaml
+    - path: rabbitmq-service.yaml
+    - path: user-service-service.yaml
