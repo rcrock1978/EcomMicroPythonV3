@@ -19,7 +19,7 @@ const ProductsPage = () => {
   const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/products/').then(res => {
+    axios.get('http://product-service:8000/api/products/').then(res => {
       setProducts(res.data);
       setFilteredProducts(res.data);
     });

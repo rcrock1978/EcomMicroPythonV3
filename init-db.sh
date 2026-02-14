@@ -10,10 +10,10 @@ done
 echo "PostgreSQL is up - executing commands"
 
 # Create databases
-psql -U postgres -c "CREATE DATABASE IF NOT EXISTS product_db;"
-psql -U postgres -c "CREATE DATABASE IF NOT EXISTS order_db;"
-psql -U postgres -c "CREATE DATABASE IF NOT EXISTS user_db;"
-psql -U postgres -c "CREATE DATABASE IF NOT EXISTS payment_db;"
-psql -U postgres -c "CREATE DATABASE IF NOT EXISTS inventory_db;"
+psql -U postgres -c "CREATE DATABASE product_db;"
+psql -U postgres -c "CREATE DATABASE order_db;"
+psql -U postgres -c "CREATE DATABASE user_db;"
+psql -U postgres -c "CREATE DATABASE payment_db;"
+psql -U postgres -c "CREATE DATABASE inventory_db;"
 
 echo "Databases created successfully"

@@ -8,6 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN sed -i 's/\r$//' entrypoint.sh
+
 RUN chmod +x entrypoint.sh
 
 EXPOSE 8000

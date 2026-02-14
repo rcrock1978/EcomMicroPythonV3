@@ -37,7 +37,7 @@ DATABASES = {
         'NAME': 'order_db',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
@@ -50,7 +50,7 @@ if 'test' in os.sys.argv:
         'NAME': 'test_order_db',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 
